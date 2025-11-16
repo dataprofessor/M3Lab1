@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-# Use this for Streamlit in Snowflake deployment
+## Use this for Streamlit in Snowflake deployment
 # from snowflake.snowpark.context import get_active_session
 # from snowflake.cortex import complete
 
@@ -9,10 +9,10 @@ st.title("Avalanche Streamlit App")
 
 # Establish Snowflake session
 
-# Use this for Streamlit in Snowflake deployment
+## Use this for Streamlit in Snowflake deployment
 # session = get_active_session()
 
-# Use this for Streamlit Community Cloud deployment
+## Use this for Streamlit Community Cloud deployment
 session = st.connection("snowflake").session()
 
 # Load customer review data with sentiment
@@ -67,10 +67,10 @@ st.subheader("Ask Questions About Your Data")
 user_question = st.text_input("Enter your question here:")
 
 if user_question:
-    # Use this for Streamlit in Snowflake deployment
+    ## Use this for Streamlit in Snowflake deployment
     # response = complete(model="claude-3-5-sonnet", prompt=f"Answer this question using the dataset: {user_question} <context>{df_string}</context>", session=session)
 
-    # Use this for Streamlit Community Cloud deployment
+    ## Use this for Streamlit Community Cloud deployment
     response = session.sql(f"SELECT SNOWFLAKE.CORTEX.COMPLETE('claude-3-5-sonnet', 'Answer this question using the dataset: {user_question} <context>{df_string}</context>')").collect()[0][0]
     
     st.write(response)
