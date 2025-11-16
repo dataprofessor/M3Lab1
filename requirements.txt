@@ -1,3 +1,3 @@
-streamlit
+streamlit[snowflake]
 matplotlib
 pandas
