@@ -67,6 +67,8 @@ st.subheader("Ask Questions About Your Data")
 user_question = st.text_input("Enter your question here:")
 
 if user_question:
+    prompt = f'Answer this question using the dataset: {user_question} <context>{df_string}</context>'
+   
     ## Use this for Streamlit in Snowflake deployment
     # response = complete(model="claude-3-5-sonnet", prompt=f"Answer this question using the dataset: {user_question} <context>{df_string}</context>", session=session)
 
