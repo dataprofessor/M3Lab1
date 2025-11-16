@@ -71,6 +71,6 @@ if user_question:
     # response = complete(model="claude-3-5-sonnet", prompt=f"Answer this question using the dataset: {user_question} <context>{df_string}</context>", session=session)
 
     ## Use this for Streamlit Community Cloud deployment
-    response = session.sql(f"SELECT SNOWFLAKE.CORTEX.COMPLETE('claude-3-5-sonnet', 'Answer this question using the dataset: {user_question} <context>{df_string}</context>')").collect()[0][0]
+    response = session.sql(f"SELECT SNOWFLAKE.CORTEX.COMPLETE('claude-3-5-sonnet', $${prompt}$$)").collect()[0][0]
     
     st.write(response)
